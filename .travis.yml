@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true raghukumarm/react-client-container npm run test
 
 after_success:
-  - docker build -t rahgukumarm/multi-client ./client 
-  - docker build -t rahgukumarm/multi-nginx ./nginx 
-  - docker build -t rahgukumarm/multi-server ./server 
-  - docker build -t rahgukumarm/multi-worker ./worker 
+  - docker build -t raghukumarm/multi-client ./client 
+  - docker build -t raghukumarm/multi-nginx ./nginx 
+  - docker build -t raghukumarm/multi-server ./server 
+  - docker build -t raghukumarm/multi-worker ./worker 
   # login to docker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # publish images to docker hub
-  - docker push rahgukumarm/multi-client
-  - docker push rahgukumarm/multi-nginx
-  - docker push rahgukumarm/multi-server
-  - docker push rahgukumarm/multi-worker
+  - docker push raghukumarm/multi-client
+  - docker push raghukumarm/multi-nginx
+  - docker push raghukumarm/multi-server
+  - docker push raghukumarm/multi-worker
